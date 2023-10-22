@@ -1,0 +1,87 @@
+root{
+
+}
+
+body {
+  background-color: #d5f4e6;
+}
+
+h1 {
+  text-align: center;
+  color: #618685;
+  margin-left: 20px;
+  font-size: 60px;
+}
+
+#content{
+  border-radius: 30px;
+  color: #618685;
+  background-color:  #fefbd8;
+  padding: 20px;
+}
+
+
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.list-item{
+  font-size: 40px;
+}
+
+.del-button{
+  float:right;
+  margin-top: 10px;
+  font-size: 20px;
+  background-color: red;
+  color:black;
+  border-radius: 10px;
+
+}
+.del-button:hover{
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,2.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
+#input-section{
+  height: 55px;
+  padding: 20px;
+  background-color:  #80ced6;
+
+}
+
+#input-section, p {
+  border-radius: 30px;
+  text-align: center;
+  color: #618685;
+  font-size: 40px;
+
+}
+
+#add-new-item{
+  height: 50px;
+  font-size: 40px;
+}
+
+.delete-item-checkbox{
+  float:right;
+  height: 25px;
+  width: 25px;
+  float:right;
+  margin-top: 12px;
+  font-size: 20px;
+  background-color: red;
+  color:black;
+  border-radius: 10px;
+
+}
