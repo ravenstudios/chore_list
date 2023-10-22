@@ -8,26 +8,35 @@
   </div>
 
   <ul>
-  {% for item in chore %}
-      <li class="list-item">{{ item.item }}
-        <span>
-          {{ item.name }}
-          {{ item.repeat }}
-          {{ item.late }}
-          {{ item.compleated }}
-          {{ item.notes }}
-          {{ item.assinged_to }}
-          {{ item.date_entered }}
-          {{ item.date_compleated }}
+    <table>
 
+      <tr>
+        <th>Name</th>
+        <th>Repeat</th>
+        <th>Late</th>
+        <th>Compleated</th>
+        <th>Notes</th>
+        <th>Assinged To</th>
+        <th>Date Entered</th>
+        <th>Date Compleated</th>
+        <th>Delete</th>
+      </tr>
 
+      {% for item in chore %}
+        <tr>
+              <td>{{ item.name }}</td>
+              <td>{{ item.repeat }}</td>
+              <td>{{ item.late }}</td>
+              <td>{{ item.compleated }}</td>
+              <td>{{ item.notes }}</td>
+              <td>{{ item.assinged_to }}</td>
+              <td>{{ item.date_entered }}</td>
+              <td>{{ item.date_compleated }}</td>
+              <td><a href="/delete-item?_id={{ item._id }}">DEL</a></td>
+        </tr>
+      {% endfor %}
+    </table>
 
-
-        </span>
-
-      </li>
-
-  {% endfor %}
   </ul>
   <button  id="del-checked-button"type="button" class="del-checked-button">Delete Checked</button>
 </div>

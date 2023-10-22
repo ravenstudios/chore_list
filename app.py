@@ -34,15 +34,17 @@ def add_new_item():
     db.session.add(Chore(request.form.to_dict(flat=False)))
     #
     # #
-    db.session.commit()
+    # db.session.commit()
     # push_notifications.send_message(item)
     return render_template('index.html', chore=Chore.query.all())
 
 
 
-@app.route('/delete-item', methods = ['POST'])
+@app.route('/delete-item', methods = ['GET', 'POST'])
 def delete():
-    Shopping_list.query.filter_by(_id=request.json["id"]).delete()
+    args = request.args
+    print(args.get("id"))
+    Chore.query.filter_by(_id=args.get("_id")).delete()
     db.session.commit()
     return redirect("/")
 
