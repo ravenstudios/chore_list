@@ -16,21 +16,13 @@ from schema import db, Chore
 
 @app.route('/')
 def index():
-    print("hjhjhjhjhhhjhjhijhjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkj")
     return render_template('index.html', chore=Chore.query.all())
 
 
 
-@app.route('/add-test', methods = ['GET', 'POST'])
+@app.route('/add-new-chore', methods = ['GET', 'POST'])
 def add_new_item():
 
-
-    # print(type(request.form.to_dict(flat=False)))
-    # db.session.add(Chore(request.form["name"]))
-    # db.session.add(Chore(request.form["repeat"]))
-    # db.session.add(Chore(request.form["late"]))
-    # db.session.add(Chore(request.form["compleated"]))
-    # db.session.add(Chore(request.form["notes"]))
     db.session.add(Chore(request.form.to_dict(flat=False)))
     #
     # #
@@ -49,13 +41,14 @@ def delete():
     return redirect("/")
 
 
-@app.route('/delete-multiple-items', methods = ['POST'])
-def delete_mul_itmes():
-    for id in request.json["data"]:
-        Shopping_list.query.filter_by(_id=id).delete()
-    db.session.commit()
-    return redirect("/")
+@app.route('/add-new-chore-form', methods = ['GET', 'POST'])
+def add_new_chore_form():
+    return render_template('add-chore-form.html')
 
+# @app.route('/add-new-chore', methods = ['GET', 'POST'])
+# def add_new_chore():
+#     return render_template('add-new-chore.html')
+#
 
 if __name__ == "__main__":
 

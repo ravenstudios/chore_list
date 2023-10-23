@@ -4,8 +4,8 @@
       {% include "head.html" %}
   </head>
   <body>
-      {% include "show-chores.html" %}
-
+      {% block content %} {% endblock %}
+      {% include "footer.html" %}
   </body>
-    {% include "footer.html" %}
+
 </html>
