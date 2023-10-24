@@ -16,7 +16,7 @@ from schema import db, Chore
 
 @app.route('/')
 def index():
-    return render_template('index.html', chore=Chore.query.all())
+    return render_template('show-chores.html', chore=Chore.query.all())
 
 
 
@@ -26,7 +26,7 @@ def add_new_item():
     db.session.add(Chore(request.form.to_dict(flat=False)))
     #
     # #
-    # db.session.commit()
+    db.session.commit()
     # push_notifications.send_message(item)
     return render_template('index.html', chore=Chore.query.all())
 

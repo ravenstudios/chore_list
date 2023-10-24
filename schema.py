@@ -21,8 +21,8 @@ class Chore(db.Model):
 
     def __init__(self, chore):
 
-        print(f" repeat chore {'repeat' in chore.keys()}")
-        self.name = chore["name"][0]
+        print(f" repeat chore {chore}")
+        self.name = chore["chore-name"][0]
         self.repeat = "repeat" in chore.keys()
         self.late = "late" in chore.keys()
         self.compleated = "compleated" in chore.keys()
