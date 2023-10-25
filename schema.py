@@ -29,4 +29,4 @@ class Chore(db.Model):
         self.notes = chore["notes"][0]
         self.assinged_to = chore["assinged_to"][0]
         self.date_entered = datetime.now()
-        self.date_compleated = datetime.now()
+        self.date_compleated = None

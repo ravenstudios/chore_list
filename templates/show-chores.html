@@ -1,36 +1,63 @@
 {% extends 'base-template.html' %}
 {% block content %}
 <div id="content">
-  <ul>
-    <table>
+  <h2>Chores</h2>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Notes</th>
+      <th>Assinged To</th>
+      <th>Date Entered</th>
+      <th>Delete</th>
+      <th>Edit</th>
+      <th>Compleated</th>
+    </tr>
 
+    {% for item in chore %}
+      {% if item.compleated == False %}
       <tr>
-        <th>Name</th>
-        <th>Repeat</th>
-        <th>Late</th>
-        <th>Compleated</th>
-        <th>Notes</th>
-        <th>Assinged To</th>
-        <th>Date Entered</th>
-        <th>Date Compleated</th>
-        <th>Delete</th>
+            <td>{{ item.name }}</td>
+            <td>{{ item.notes }}</td>
+            <td>{{ item.assinged_to }}</td>
+            <td>{{ item.date_entered }}</td>
+            <td><a href="/delete-chore?_id={{ item._id }}">DEL</a></td>
+            <td><a href="/edit-chore-form?_id={{ item._id }}">Edit</a></td>
+            <td><a href="/compleated-chore?_id={{ item._id }}">Compleated</a></td>
       </tr>
+      {% endif %}
+    {% endfor %}
+  </table>
+  <h2>Compleated Chores</h2>
+  <table>
 
-      {% for item in chore %}
-        <tr>
-              <td>{{ item.name }}</td>
-              <td>{{ item.repeat }}</td>
-              <td>{{ item.late }}</td>
-              <td>{{ item.compleated }}</td>
-              <td>{{ item.notes }}</td>
-              <td>{{ item.assinged_to }}</td>
-              <td>{{ item.date_entered }}</td>
-              <td>{{ item.date_compleated }}</td>
-              <td><a href="/delete-item?_id={{ item._id }}">DEL</a></td>
-        </tr>
-      {% endfor %}
-    </table>
+    <tr>
+      <th>Name</th>
+      <th>Notes</th>
+      <th>Assinged To</th>
+      <th>Date Entered</th>
+      <th>Date Compleated</th>
+      <th>Delete</th>
+      <th>Edit</th>
+      <th>Compleated</th>
+    </tr>
 
-  </ul>
+    {% for item in chore %}
+      {% if item.compleated == True %}
+      <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.notes }}</td>
+            <td>{{ item.assinged_to }}</td>
+            <td>{{ item.date_entered }}</td>
+            <td>{{ item.date_compleated }}</td>
+            <td><a href="/delete-chore?_id={{ item._id }}">DEL</a></td>
+            <td><a href="/edit-chore-form?_id={{ item._id }}">Edit</a></td>
+            <td><a href="/compleated-chore?_id={{ item._id }}">Compleated</a></td>
+      </tr>
+      {% endif %}
+    {% endfor %}
+  </table>
+
+
+
 </div>
 {% endblock %}
