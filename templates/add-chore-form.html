@@ -1,0 +1,20 @@
+{% extends 'base-template.html' %}
+{% block content %}
+<div id="content">
+  <form class="" action="add-new-chore" method="post">
+    <div class="">
+      <h1>Edit Chore</h1>
+      <input type="text" name="chore-name" value="">
+      <textarea name="notes" rows="4" cols="40"></textarea>
+      <label for="assinged_to">Assinged To:</label>
+      <select name="assinged_to" id="assinged_to">
+        <option value="Jordan">Jordan</option>
+        <option value="Rob">Rob</option>
+        <option value="Krystle">Krystle</option>
+
+      </select>
+    </div>
+    <input type="submit" value="Submit">
+  </form>
+</div>
+{% endblock %}

@@ -21,12 +21,12 @@ class Chore(db.Model):
 
     def __init__(self, chore):
 
-        print(f" repeat chore {'repeat' in chore.keys()}")
-        self.name = chore["name"][0]
+        print(f" repeat chore {chore}")
+        self.name = chore["chore-name"][0]
         self.repeat = "repeat" in chore.keys()
         self.late = "late" in chore.keys()
         self.compleated = "compleated" in chore.keys()
         self.notes = chore["notes"][0]
         self.assinged_to = chore["assinged_to"][0]
         self.date_entered = datetime.now()
-        self.date_compleated = datetime.now()
+        self.date_compleated = None
